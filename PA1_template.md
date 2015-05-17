@@ -1,5 +1,11 @@
 # Reproducible Research: Peer Assessment 1
 
+Setting up Global knitr options
+
+```r
+library(knitr)
+opts_chunk$set(echo = TRUE)
+```
 
 ## Loading and preprocessing the data
 
@@ -27,7 +33,7 @@ hist(TotalStepsPerDay, breaks = 6, main = "Total number of steps per day",
      xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 Compute the mean and median total number of steps per day
 
@@ -67,7 +73,7 @@ plot(MeanStepsPerInterval, type = "l", main = ("The average daily activity patte
     ylab = "Number of steps", xlab = "Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 
 Find the 5-minute interval which, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -120,7 +126,7 @@ hist(TotalStepsPerDay_NoMissData, breaks = 6, main = "Total number of steps per 
     xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 
 Find the mean and median total number of steps taken per day.
@@ -142,7 +148,9 @@ median(TotalStepsPerDay_NoMissData)
 ## [1] 10766.19
 ```
 
-The imputation has a slight impact on the median total number of steps taken per day. It was changed from 10765 to 10766. The mean total number of steps taken per day remained the same. 
+The imputation has a slight impact on the median total number of steps taken per day. It was changed from 10765 to 10766.19 
+
+The mean total number of steps taken per day remained the same. 
 
 
 
@@ -183,7 +191,7 @@ with(activity, {
 })
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
 
 
 
