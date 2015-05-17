@@ -33,7 +33,7 @@ hist(TotalStepsPerDay, breaks = 6, main = "Total number of steps per day",
      xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](figure/unnamed-chunk-4-1.png) 
 
 Compute the mean and median total number of steps per day
 
@@ -73,7 +73,7 @@ plot(MeanStepsPerInterval, type = "l", main = ("The average daily activity patte
     ylab = "Number of steps", xlab = "Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![](figure/unnamed-chunk-7-1.png) 
 
 Find the 5-minute interval which, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -122,11 +122,15 @@ activity_NoMissData <- activity
 activity_NoMissData$steps <- MeanStepsPerInterval_vec * stepsData_vec
 TotalStepsPerDay_NoMissData <- tapply(activity_NoMissData$steps, activity_NoMissData$date, 
     sum)
+```
+
+
+```r
 hist(TotalStepsPerDay_NoMissData, breaks = 6, main = "Total number of steps per day", 
     xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![](figure/unnamed-chunk-11-1.png) 
 
 
 Find the mean and median total number of steps taken per day.
@@ -181,17 +185,17 @@ MeanStepsPerWeekday <- tapply(activity$steps, list(activity$interval, activity$W
 par(mfrow = c(2, 1))
 # Display the two plots
 with(activity, {
-    par(mai = c(0, 1, 0.8, 0))
+    par(mai = c(0, 1, 0.8, 0.5))
     plot(MeanStepsPerWeekday[, 1], type = "l", main = "Activity patterns on weekends and weekdays", 
         xaxt = "n", ylab = "Weekends")
     
-    par(mai = c(0.8, 1, 0, 0))
+    par(mai = c(0.8, 1, 0, 0.5))
     plot(MeanStepsPerWeekday[, 2], type = "l", xlab = "Interval", ylab = "Weekdays")
 
 })
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![](figure/unnamed-chunk-14-1.png) 
 
 
 

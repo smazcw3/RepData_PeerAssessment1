@@ -30,7 +30,7 @@ TotalStepsPerDay <- tapply(activity$steps, activity$date, FUN = sum)
 
 Plot histogram of the total number of steps taken per day
 
-```{r}
+```{r fig.path='figure/'}
 hist(TotalStepsPerDay, breaks = 6, main = "Total number of steps per day",
      xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
@@ -54,7 +54,7 @@ MeanStepsPerInterval <- tapply(activity$steps, activity$interval, mean, na.rm = 
 
 Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{r}
+```{r fig.path='figure/'}
 plot(MeanStepsPerInterval, type = "l", main = ("The average daily activity pattern"), 
     ylab = "Number of steps", xlab = "Interval")
 ```
@@ -95,6 +95,9 @@ activity_NoMissData <- activity
 activity_NoMissData$steps <- MeanStepsPerInterval_vec * stepsData_vec
 TotalStepsPerDay_NoMissData <- tapply(activity_NoMissData$steps, activity_NoMissData$date, 
     sum)
+```
+
+```{r fig.path='figure/'}
 hist(TotalStepsPerDay_NoMissData, breaks = 6, main = "Total number of steps per day", 
     xlab = "Steps per day", ylab = "Frequency", col = "blue")
 ```
@@ -135,15 +138,15 @@ MeanStepsPerWeekday <- tapply(activity$steps, list(activity$interval, activity$W
 
 * Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-```{r}
+```{r fig.height=6, fig.width=7, fig.path='figure/'}
 par(mfrow = c(2, 1))
 # Display the two plots
 with(activity, {
-    par(mai = c(0, 1, 0.8, 0))
+    par(mai = c(0, 1, 0.8, 0.5))
     plot(MeanStepsPerWeekday[, 1], type = "l", main = "Activity patterns on weekends and weekdays", 
         xaxt = "n", ylab = "Weekends")
     
-    par(mai = c(0.8, 1, 0, 0))
+    par(mai = c(0.8, 1, 0, 0.5))
     plot(MeanStepsPerWeekday[, 2], type = "l", xlab = "Interval", ylab = "Weekdays")
 
 })
